@@ -1,30 +1,22 @@
-//Kick off our IIFE object here... START:
+
 var HoagieBuilder = (function() {
+
   var totalCalorie = 0;     // Private variable to store the hoagie CALORIE
 
   // Return the public interface that other code can interact with
   return {
     addTopping: function(toppingCal) {
       totalCalorie += toppingCal;
-			sandwichEl.HB = totalCalorie; 
-      console.log("Currently Cal",totalCalorie);
+			sandwichEl.HB = totalCalorie;
+
     }
   };
 })();
-///////////////////////LOOSE AUGMENTATION///////////////////////
-//////  Alternatively we could open and close each IIFE with:
-//////  var HoagieBuilder = (function(maker) {
-//////    STUFF
-//////  })(HoagieBuilder || {});
 
+/////// ########### cold options ############///////
 
-
-///////////////////////NEW JAVASCRIPT FILE///////////////////////
-console.log("<<<1 IIFE HoagieBuilder is first >>>");
-// console.log("<<<2 IIFE bread.js loaded >>>");
-// This HoagieBuilder IIFE augments the original one
 var HoagieBuilder = (function(maker) {
-  // Private variable to store the different bread prices
+
   var coldCal= {"Turkey":         330,
                 "Ham":            100, 
                 "Pepperoni":      360, 
@@ -46,12 +38,8 @@ var HoagieBuilder = (function(maker) {
   return maker;
 })(HoagieBuilder);
 
+/////// ########### hot options ############///////
 
-
-///////////////////////NEW JAVASCRIPT FILE///////////////////////
-console.log("<<<2 IIFE HoagieBuilder is second >>>");
-// console.log("<<<3 IIFE meat.js loaded >>>");
-// This HoagieBuilder IIFE augments the original one
 var HoagieBuilder = (function(maker) {
   // Private variable to store the different meat prices
   var hotCal = {"Meatball":    480, 
@@ -71,14 +59,10 @@ var HoagieBuilder = (function(maker) {
   return maker;
 })(HoagieBuilder);
 
+/////// ########### cheese options ############///////
 
-
-///////////////////////NEW JAVASCRIPT FILE///////////////////////
-console.log("<<<3 IIFE HoagieBuilder is third >>>");
-// console.log("<<<4 IIFE cheese.js loaded >>>");
-// This HoagieBuilder IIFE augments the original one
 var HoagieBuilder = (function(maker) {
-  // Private variable to store the different cheese prices
+
   var cheeseCal= {"American":    80, 
                   "Provolone":  100, 
                   "Cheddar":    110, 
@@ -99,12 +83,8 @@ var HoagieBuilder = (function(maker) {
   return maker;
 })(HoagieBuilder);
 
+/////// ########### condiments options ############///////
 
-
-///////////////////////NEW JAVASCRIPT FILE///////////////////////
-console.log("<<<4 IIFE HoagieBuilder is fourth >>>");
-// console.log("<<<5 IIFE condiments.js loaded >>>");
-// This HoagieBuilder IIFE augments the original one
 var HoagieBuilder = (function(maker) {
   // Private variable to store the different condiment prices
   var condimentCal= {"Mayo":          50,
@@ -129,11 +109,8 @@ var HoagieBuilder = (function(maker) {
   return maker;
 })(HoagieBuilder);
 
+/////// ########### topping options ############///////
 
-
-///////////////////////NEW JAVASCRIPT FILE///////////////////////
-console.log("<<<5 IIFE HoagieBuilder is fifth >>>");
-// console.log("<<<6 IIFE veggies.js loaded >>>");
 
 var HoagieBuilder = (function(maker) {
   // Private variable to store the different veggie prices
@@ -161,12 +138,6 @@ var HoagieBuilder = (function(maker) {
   return maker;
 })(HoagieBuilder);
 
-
-
-///////////////////////NEW JAVASCRIPT FILE///////////////////////
-console.log("<<<6 IIFE HoagieBuilder is sixth >>>");
-// console.log("<<<7 IIFE DOMhandler.js loaded >>>");
-
 var finalHoagieCal = 0;   //Variable to hold the final price. Default to 0.
 var selectedTopping;          //Variable to hold topping that the user selects
 
@@ -192,8 +163,6 @@ coldChooser.addEventListener("click", function(event) {
     sandwichEl.innerHTML += `+${coldH[coldHKey]} for ${selectedTopping[1]}<br>`; //Output to DOM
     totalEl.innerHTML = `${finalHoagieCal} current total`;
 
-    console.log("We selected: ",selectedTopping[1], " ",coldH[coldHKey]);   
-    console.log("finalHoagieCal",finalHoagieCal );
   }
 });
 
@@ -208,8 +177,6 @@ hotChooser.addEventListener("click", function(event) {
     sandwichEl.innerHTML += `+${hotH[hotHKey]} for ${selectedTopping[1]}<br>`;
     totalEl.innerHTML = `${finalHoagieCal} current total`;
 
-    console.log("We selected: ",selectedTopping[1], " ",hotH[hotHKey]);
-    console.log("finalHoagieCal",finalHoagieCal );
   }
 });
 
@@ -224,8 +191,6 @@ cheeseChooser.addEventListener("click", function(event) {
     sandwichEl.innerHTML += `+${cheeses[cheeseKey]} for ${selectedTopping[1]}<br>`;
     totalEl.innerHTML = `${finalHoagieCal} current total`;
 
-    console.log("We selected: ",selectedTopping[1], " ",cheeses[cheeseKey]);
-    console.log("finalHoagieCal",finalHoagieCal );
   }
 });
 
@@ -240,8 +205,6 @@ condimentChooser.addEventListener("click", function(event) {
     sandwichEl.innerHTML += `+${condiments[condimentKey]} for ${selectedTopping[1]}<br>`;
     totalEl.innerHTML = `${finalHoagieCal} current total`;
 
-    console.log("We selected: ",selectedTopping[1], " ",condiments[condimentKey]);
-    console.log("finalHoagieCal",finalHoagieCal );
   }
 });
 
@@ -256,10 +219,13 @@ toppingChooser.addEventListener("click", function(event) {
     sandwichEl.innerHTML += `+${topping[toppingKey]} for ${selectedTopping[1]}<br>`;
     totalEl.innerHTML = `${finalHoagieCal} current total`;
 
-    console.log("We selected: ",selectedTopping[1], " ",topping[toppingKey]);
-    console.log("finalHoagieCal",finalHoagieCal );
+
   }
 });
 
-console.log("<<< BYE >>>");
+
+
+
+
+
 

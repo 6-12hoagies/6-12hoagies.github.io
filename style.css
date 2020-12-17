@@ -1601,7 +1601,7 @@ input.invalid {
 .formresults {
   position: absolute;
   left: 50%;
-  top: 20%;
+  top: 10%;
   padding: 50px;
 }
 .performance-facts {
